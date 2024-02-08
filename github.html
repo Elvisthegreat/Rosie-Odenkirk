@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/github-information.js"></script>
+    <script type="text/javascript" src="assets/github-information.js"></script>
     <title>Rosie</title>
 </head>
 
@@ -63,8 +63,15 @@
                 <h5 class="uppercase text-center">You can also search on other user profiles</h5>
 
                 <div class="center-form">
+                    <!--Then we have this oninput event, which will fetch the GitHub information.
+                     So this event will be fired every single time a user enters something into the textbox.-->
+
                     <input type="text" id="gh-username" value="octocat" oninput="fetchGitHubInformation()" />
+
+                    <!--Present the user data informations-->
                     <div id="gh-user-data"></div>
+
+                    <!--present the repository information.--> 
                     <div id="gh-repo-data"></div>
 
                 </div>
