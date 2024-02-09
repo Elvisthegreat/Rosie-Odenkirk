@@ -15,4 +15,15 @@ function fetchGitHubInformation(event) {
         `<div id="loader">
             <img src="assets/css/loader.gif" alt="loading..." />
         </div>`);
+
+        // Retrieving some information from the GitHub API.
+        // Issueing a promise with when and then.
+
+        $.when(
+            $.getJSON(`https://api.github.com/users/${username}`)
+        ).then(
+                function(response) {
+                    var userData = response;
+                    $gh
+                })
 }
