@@ -43,11 +43,14 @@ function fetchGitHubInformation(event) {
         // Issueing a promise with when and then.
 
         $.when(
-            $.getJSON(`https://api.github.com/users/${username}`)
+            $.getJSON(`https://api.github.com/users/${username}`),
+            $.getJSON(`https://api.github.com/users/${username}/repos`) //list the repositories for that individual user.
         ).then(
-            function(response) {
-                var userData = response;
+            function(firstResponse, secondResponse) {
+                var userData = firstResponse[0];
+                var repoData = secondResponse[0];
                 $("#gh-user-data").html(userInformationHTML(userData));
+                $("#gh-repo-data").html(repoInformationHTML(repoData));
             },
             function(errorResponse) {
                 if (errorResponse.status === 404) {
