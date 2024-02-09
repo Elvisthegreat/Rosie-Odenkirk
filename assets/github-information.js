@@ -24,6 +24,18 @@ function fetchGitHubInformation(event) {
         ).then(
                 function(response) {
                     var userData = response;
-                    $gh
+                    $("gh-user-data").html(userInformationHTML(userData));
+
+                    // Incase the promise doesn't work out
+                }, function(errorResponse) {
+                    if(errorResponse.status === 404){
+                        $("gh-user-data").html(`<h2>No info found for user ${username}</h2>`);
+
+                    // Incase the error that come back is not a 404 error
+                    }else{
+                        console.log(errorResponse);
+                        $("gh-user-data").html(
+                            `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);      
+                    }
                 })
 }
