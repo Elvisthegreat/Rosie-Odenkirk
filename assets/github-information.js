@@ -1,3 +1,23 @@
+function userInformationHTML(user) {
+
+    // Getting the object of the user that contains
+    // example! Username, login profile and so
+    // Setting the GitHub automatically generates an avatar if you dont have one
+    return `
+        <h2>${user.name}
+           <span class="small-name"> (@<a href="${user.htnl_url}" target="_blank">${user.login}</a>)
+           </span>
+           </h2>
+           <div class="gh-content">
+               <div class="gh-avatar">
+                   <a href="${user.html_url}" target="_blank">
+                       <img src="${user.avatar_url}" width="80px" height="80px" alt="${user.login}" />
+                   </a>
+               </div>
+               <p>Followers: ${user.followers} - Following ${user.following} <br> Repos: ${user.public_repos}</p>
+           </div>`;
+}
+
 function fetchGitHubInformation(event) {
 
     var username = $("#gh-username").val(); //The val() get the value from the test field which is the user input
