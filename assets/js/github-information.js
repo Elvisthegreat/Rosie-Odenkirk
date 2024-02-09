@@ -21,6 +21,21 @@ function userInformationHTML(user) {
     </div>`;
 }
 
+/**
+ * Function to display our user data repository for our
+ * selected user, to display that data on the screen.
+ */
+
+function repoInformationHTML(repos){
+    if(repos.length == 0){
+        return `<div class="clearFix repo-list">No repos!</div>`
+    }
+
+    var listItemsHTML = repos.map(function(repo){
+        
+    })
+}
+
 function fetchGitHubInformation(event) {
 
     var username = $("#gh-username").val(); //The val() get the value from the test field which is the user input
