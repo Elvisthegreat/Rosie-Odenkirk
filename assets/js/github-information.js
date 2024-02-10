@@ -30,10 +30,25 @@ function repoInformationHTML(repos){
     if(repos.length == 0){
         return `<div class="clearFix repo-list">No repos!</div>`
     }
-
+       // Take to the repo when we click on it 
+       // And open in a new tab
     var listItemsHTML = repos.map(function(repo){
-        
-    })
+        return `<li>
+                    <a href="${repo.html_url}" target="_blank">${repo.name}</a> 
+                </li>`
+    });
+
+    /**And remember, we said that map() returns an array.
+       So what we're going to do is use the join() 
+       method on that array and join everything */
+    return `<div class="clearFix repo-list">
+                <p>
+                    <strong>Repo List:</strong>
+                </p>
+                <ul>
+                    ${listItemsHTML.join("\n")}
+                </ul>
+            </div>`
 }
 
 function fetchGitHubInformation(event) {
