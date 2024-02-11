@@ -52,6 +52,13 @@ function repoInformationHTML(repos){
 }
 
 function fetchGitHubInformation(event) {
+    /**
+     * Setting their HTML content to an empty string has the effect of emptying these divs.
+     * when their is no user input
+     */
+    $("#gh-user-data").html("");
+    $("#gh-repo-data").html("");
+
 
     var username = $("#gh-username").val(); //The val() get the value from the test field which is the user input
      
@@ -93,3 +100,9 @@ function fetchGitHubInformation(event) {
                 }
             });
 }
+
+/**
+ * Display the octocat profile when the page is fully loaded,
+ * for has it a placeholder for the field text
+ */
+$(document).ready(fetchGitHubInformation);
