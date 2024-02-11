@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Rosie</title>
+      
+    <!--For sending Email. For our contact.html-->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("5NFZ7Flcek6AYNJQm");
+            emailjs.send("gmail", "rosie", {
+                name: "Elvis",
+                notes: "The project that I want is..."
+            })
+        })();
+    </script>
+
 </head>
 <body>
     <header>
